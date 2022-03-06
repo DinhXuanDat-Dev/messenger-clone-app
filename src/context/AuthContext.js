@@ -11,10 +11,6 @@ export const AuthProvider = ( {children} ) => {
     const [user, setUser] = useState(null);
     const history = useHistory();
 
-    // console.log('user', user);
-    // console.log('history', history);
-    // console.log('setLoading', loading);
-
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
             setUser(user);

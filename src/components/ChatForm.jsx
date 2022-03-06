@@ -30,7 +30,7 @@ const ChatForm = () => {
 
     axios.get('https://api.chatengine.io/users/me',{
       headers: {
-        "project-id": "ed4fad7f-003e-40f3-9f9a-3f43cad82685",
+        "project-id": process.env.REACT_APP_PROJECT_ID,
         "user-name": user.email,
         "user-secret": user.uid,
       }
@@ -53,7 +53,7 @@ const ChatForm = () => {
             formData,
             { headers: 
               { 
-                "private-key": "09a9890a-e6c1-47dc-87ac-873992d1e141",
+                "private-key": process.env.REACT_APP_PRIVATE_KEY,
               }}
           )
           .then(() => {
@@ -78,7 +78,7 @@ const ChatForm = () => {
       </div>
       <ChatEngine
         className="chat-engine"
-        projectID = "ed4fad7f-003e-40f3-9f9a-3f43cad82685"
+        projectID = {process.env.REACT_APP_PROJECT_ID}
         userName = {user.email}
         userSecret = {user.uid}
       />
