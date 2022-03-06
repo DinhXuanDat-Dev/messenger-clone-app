@@ -1,4 +1,4 @@
-import firebase, { auth } from 'firebase';
+import firebase from 'firebase';
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -11,9 +11,9 @@ export const AuthProvider = ( {children} ) => {
     const [user, setUser] = useState(null);
     const history = useHistory();
 
-    console.log('user', user);
-    console.log('history', history);
-    console.log('setLoading', loading);
+    // console.log('user', user);
+    // console.log('history', history);
+    // console.log('setLoading', loading);
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {

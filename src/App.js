@@ -16,7 +16,6 @@ function App() {
           </Switch>
         </AuthProvider>
       </Router>
-        {/* <LoginForm /> */}
     </div>
   );
 }

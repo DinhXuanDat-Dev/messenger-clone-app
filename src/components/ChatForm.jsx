@@ -1,7 +1,7 @@
 import axios from 'axios';
-import firebase, { auth } from 'firebase';
+import firebase from 'firebase';
 import React, { useState, useEffect } from 'react'
-import { Avatar, ChatEngine } from 'react-chat-engine';
+import { ChatEngine } from 'react-chat-engine';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -41,10 +41,9 @@ const ChatForm = () => {
     .catch(() =>{
       // Send user data to chatengine console
       let formData = new FormData();
-      formData.append('email', user.email);
       formData.append('username', user.email);
+      formData.append('email', user.email);
       formData.append('secret', user.uid);
-      console.log('formData', formData);
 
       getFile(user.photoURL)
         .then((avatar) => {
@@ -52,7 +51,10 @@ const ChatForm = () => {
 
           axios.post('https://api.chatengine.io/users',
             formData,
-            { headers: { "private-key": "09a9890a-e6c1-47dc-87ac-873992d1e141" }}
+            { headers: 
+              { 
+                "private-key": "09a9890a-e6c1-47dc-87ac-873992d1e141",
+              }}
           )
           .then(() => {
             setLoading(false);
