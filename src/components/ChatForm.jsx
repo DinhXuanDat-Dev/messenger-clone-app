@@ -68,10 +68,16 @@ const ChatForm = () => {
 
   return (
     <div>
-      <div>
-        <button onClick={handleLogout}>Logout</button>
+      <div className="container">
+        <div className="nav-bar">
+          <div className="header-wrapper">
+            <h2>Hello {user.displayName}</h2>
+          </div>
+            <button onClick={handleLogout}>Logout</button>
+        </div>
       </div>
       <ChatEngine
+        className="chat-engine"
         projectID = "ed4fad7f-003e-40f3-9f9a-3f43cad82685"
         userName = {user.email}
         userSecret = {user.uid}
