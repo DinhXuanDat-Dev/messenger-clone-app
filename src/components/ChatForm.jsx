@@ -49,7 +49,7 @@ const ChatForm = () => {
         .then((avatar) => {
           formData.append('avatar', avatar, avatar.name);
 
-          axios.post('https://api.chatengine.io/users',
+          axios.post('https://api.chatengine.io/users/',
             formData,
             { headers: 
               { 
